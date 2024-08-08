@@ -46,27 +46,6 @@ mse = mean_squared_error(y_test,y_pred)
 rmse = np.sqrt(mse)
 print('XGBReg error', rmse)
 
-#############################################################
-# Simple linear Reg with cross validation
-#############################################################
-from sklearn.model_selection import cross_val_score
-model = LinearRegression()
-scores = cross_val_score(model,X,y,scoring='neg_mean_squared_error', cv=10)
-rmse = np.sqrt(-scores)
-print("Reg RMSE:",np.round(rmse,2))
-print("RMSE mean:, %0.2f" %(rmse.mean()))
-
-#############################################################
-# XGboost with cross validation
-#############################################################
-
-from sklearn.model_selection import cross_val_score
-model = XGBRegressor()
-scores = cross_val_score(model,X,y,scoring='neg_mean_squared_error', cv=10)
-rmse = np.sqrt(-scores)
-print("Xgboost RMSE:",np.round(rmse,2))
-print("RMSE mean:, %0.2f" %(rmse.mean()))
-
 
 
 
