@@ -30,7 +30,7 @@ X= df_census.iloc[:,:-1]
 y= df_census.iloc[:,-1]
 
 rf = RandomForestRegressor(n_estimators=10,random_state=2,n_jobs=-1)
-scores = cross_val_score(rf,X,y,cv=5,scoring='neg_mean_squared_error')
+scores = cross_val_score(rf,X,y,cv=10,scoring='neg_mean_squared_error')
 rmse = np.sqrt(-scores)
 print('RMSE', np.round(rmse,3))
 print('RMSE mean',rmse.mean())
