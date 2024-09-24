@@ -25,26 +25,50 @@ df_census = pd.read_csv('/Users/shankarmanoharan/Stats/Handson_XGBoost/Ch3/bike_
 X= df_census.iloc[:,:-1]
 y= df_census.iloc[:,-1]
 
-from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X,y, random_state=2)
+#from sklearn.model_selection import train_test_split
+#X_train, X_test, y_train, y_test = train_test_split(X,y, random_state=2)
+X_train = df_census.iloc[:25,:-1]
+y_train = df_census.iloc[:25,-1]
+X_test = df_census.iloc[25:50,:-1]
+y_test = df_census.iloc[25:50,-1]
 
 from sklearn.tree import DecisionTreeRegressor
+
+#print("original value")
+#print(y_train)
 
 #iteration 1
 tree_1 = DecisionTreeRegressor(max_depth=2,random_state=2)
 tree_1.fit(X_train,y_train)
 y_train_pred = tree_1.predict(X_train)
+#print("Y1 Prod")
+#print(y_train_pred)
 y2_train = y_train - y_train_pred
+#print("Y2 Train")
+#print(y2_train)
+
 
 #Iteration_2
 tree_2 = DecisionTreeRegressor(max_depth=2,random_state=2)
 tree_2.fit(X_train,y2_train)
 y2_train_pred = tree_2.predict(X_train)
+#print("Y2 pred")
+#print(y2_train_pred)
 y3_train = y2_train - y2_train_pred
+#print("Y3 train")
+#print(y3_train)
+
 
 #Iteration_3
 tree_3 = DecisionTreeRegressor(max_depth=2,random_state=2)
 tree_3.fit(X_train,y3_train)
+y3_train_pred = tree_3.predict(X_train)
+#print("Y3 pred")
+#print(y3_train_pred)
+y4_train = y3_train - y3_train_pred
+#print("Y4 train")
+#print(y4_train)
+
 
 from sklearn.metrics import mean_squared_error as MSE
 
@@ -84,7 +108,7 @@ print(MSE(y_test,y_pred)**0.5)
 gbr = GradientBoostingRegressor(max_depth=2,random_state=2,n_estimators=300)
 gbr.fit(X_train,y_train)
 y_pred = gbr.predict(X_test)
-print(MSE(y_test,y_pred)**0.5)
+print(MSE(y_test,y_pred)**0.5) 
 
 
 
