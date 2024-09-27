@@ -48,11 +48,11 @@ grid_search(kfold,X,y,params={'n_estimators':[2,25,50,75,100],
                               })
 
 #iteration 6 - Takes a ton of time. 
-grid_search(kfold,X,y,params={'n_estimators':[2,25,50,75,100], 
-                              'max_depth':[1,2,3,4,5,6,7,8],
-                              'learning_rate':[0.01,0.05,0.1,0.2,0.3,0.4,0.5],
-                              'min_child_weight':[1,2,3,4,5],
-                              'subsample':[0.5,0.6,0.7,0.8,0.9],
+grid_search(kfold,X,y,params={'n_estimators':[2,25,50,75], 
+                              'max_depth':[1],
+                              'learning_rate':[0.05,0.1],
+                              'min_child_weight':[1,2],
+                              'subsample':[0.6,0.7,0.8],
                               'colsample_bytree':[0.5,0.6,0.7,0.8,0.9,1],
                               'colsample_bylevel':[0.5,0.6,0.7,0.8,0.9,1],
                               'colsample_bynode':[0.5,0.6,0.7,0.8,0.9,1],
