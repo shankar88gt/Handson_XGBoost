@@ -4,12 +4,11 @@
 # Fine tuning the model 
 import pandas as pd
 df = pd.read_csv('/Users/shankarmanoharan/VSCode/Handson_XGBoost/Ch7/exoplanets.csv',nrows=400)
-print(df.head())
+#print(df.head())
 print(df['LABEL'].value_counts())
 
 import matplotlib.pyplot as plt
 import numpy as np
-import seaborn as sns
 
 X = df.iloc[:,1:]
 y = df.iloc[:,0]
@@ -37,7 +36,7 @@ def light_plot(index):
 #light_plot(5)
 
 #exploring
-print(df.info())
+#print(df.info())
 print('Null count',df.isnull().sum().sum())
 
 #Quick & dirty Model
@@ -56,14 +55,16 @@ print('accuracy',accuracy_score(y_pred,y_test))
 from sklearn.metrics import confusion_matrix, classification_report
 print(confusion_matrix(y_pred,y_test))
 
-#accuracy 0.89
-#[[86  9]  -  86/88 - label 0 - 97.72%
-# [ 2  3]] - 3/12 - label 1 - 25% 
-# not good
-# Precision = TP / TP + FP
-# Recall = TP / TP + FN
 
-print(classification_report(y_pred,y_test))
+
+
+
+
+
+
+
+
+
 
 
 
