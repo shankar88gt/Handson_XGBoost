@@ -54,22 +54,3 @@ print(confusion_matrix(ytest,y_pred))
 print(classification_report(ytest,y_pred))
 #oversampling improves precision of 1 from 0.25 to 0.33 - slight improvement
 
-"""
-# oversampling results 
-              precision    recall  f1-score   support
-           0       0.95      0.91      0.93        92
-           1       0.33      0.50      0.40         8
-    accuracy                           0.88       100
-   macro avg       0.64      0.71      0.67       100
-weighted avg       0.90      0.88      0.89       100
-
-#scale pos weights
-accuracy 0.89
-              precision    recall  f1-score   support
-           0       0.97      0.91      0.94        93
-           1       0.33      0.57      0.42         7
-    accuracy                           0.89       100
-   macro avg       0.65      0.74      0.68       100
-weighted avg       0.92      0.89      0.90       100
-
-"""
